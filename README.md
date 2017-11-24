@@ -2,7 +2,7 @@
 
 View **images/gifs** in _iTerm2_ from a **file** or **url**.
 
-### install (required python 3)
+### install (requires python 3)
 `pip install pixee`
 
 ### usage
