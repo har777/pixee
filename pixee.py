@@ -18,7 +18,7 @@ def display_image_in_iterm2(b64encoded_data):
     footer = b'\a\n'
     sys.stdout.buffer.write(header + b64encoded_data + footer)
 
-if __name__=="__main__":
+def display():
     parser = argparse.ArgumentParser(description='View images/gifs in iTerm2')
     parser.add_argument('-f', '--file', help='file path of local image/gif', metavar='\b')
     parser.add_argument('-u', '--url', help='url of image/gif', metavar='\b')
@@ -27,6 +27,8 @@ if __name__=="__main__":
     if args.file:
         b64encoded_data = get_b64encoded_file_image(args.file)
         display_image_in_iterm2(b64encoded_data)
-    if args.url:
+    elif args.url:
         b64encoded_data = get_b64encoded_url_image(args.url)
         display_image_in_iterm2(b64encoded_data)
+    else:
+        parser.print_help()
